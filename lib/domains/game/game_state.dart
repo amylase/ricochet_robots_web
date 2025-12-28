@@ -54,6 +54,7 @@ class GameState with _$GameState {
     final history = History(
       color: focusedRobot.color,
       position: currentPosition,
+      direction: direction,
     );
     final nextHistories =
         nextPosition != currentPosition ? [...histories, history] : histories;

@@ -4,8 +4,10 @@ import 'package:ricochet_robots/domains/board/robot.dart';
 class History {
   RobotColors color;
   Position position;
+  Directions direction;
   History({
     required this.color,
     required this.position,
+    required this.direction,
   });
 }

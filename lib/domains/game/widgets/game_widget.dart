@@ -49,6 +49,7 @@ class GameWidget extends StatelessWidget {
                 visible: state.shouldShowResult,
                 child: ResultDialog(
                   moves: state.histories.length,
+                  histories: state.histories,
                   onPressCancel: () => bloc.add(const ReplayEvent()),
                   onPressButton: () => bloc.add(const RestartEvent()),
                 ),
