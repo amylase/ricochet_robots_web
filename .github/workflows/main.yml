@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: |
           dart run build_runner build
-          flutter build web --base-href /ricochet_robots/
+          flutter build web --base-href /ricochet_robots_web/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
