@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricochet_robots/domains/board/goal.dart';
+import 'package:ricochet_robots/domains/board/goal_icon.dart';
 import 'package:ricochet_robots/domains/board/grid.dart';
 import 'package:ricochet_robots/domains/board/position.dart';
 import 'package:ricochet_robots/domains/board/robot.dart';
+import 'package:ricochet_robots/domains/board/robot_color.dart';
 import 'package:ricochet_robots/domains/edit/edit.dart';
 import 'package:ricochet_robots/domains/edit/editable_icon.dart';
 import 'package:ricochet_robots/domains/game/game_bloc.dart';

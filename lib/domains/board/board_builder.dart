@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:ricochet_robots/domains/board/board.dart';
 import 'package:ricochet_robots/domains/board/board_id.dart';
 import 'package:ricochet_robots/domains/board/goal.dart';
@@ -18,7 +16,6 @@ Board toBoard({required BoardId boardId}) => Board(
       goal: toGoal(boardId: boardId),
     );
 
-@visibleForTesting
 Grids toGrids({required BoardId boardId}) {
   final baseGrids = addEdges(grids: toNormalGrids(id: boardId.baseId));
   final gridsWithNormalGoal = putNormalGoals(
@@ -39,14 +36,12 @@ const canMoveLeftBit = 1 << 3;
 
 const rowLength = 16;
 
-@visibleForTesting
 List<List<NormalGrid>> toNormalGrids({required String id}) {
   return intoChunks(id: id, chunkSize: rowLength)
       .map((id) => toNormalGridRow(id: id))
       .toList();
 }
 
-@visibleForTesting
 List<String> intoChunks({
   required String id,
   required int chunkSize,
@@ -67,7 +62,6 @@ List<NormalGrid> toNormalGridRow({required String id}) {
   return id.split('').map((char) => charToNormalGrid(char: char)).toList();
 }
 
-@visibleForTesting
 NormalGrid charToNormalGrid({required String char}) {
   final value = boardIdChars.indexOf(char);
   if (value < 0 || rowLength <= value) {
@@ -82,7 +76,6 @@ NormalGrid charToNormalGrid({required String char}) {
   );
 }
 
-@visibleForTesting
 List<List<NormalGrid>> addEdges({required List<List<NormalGrid>> grids}) {
   return List.generate(rowLength, (y) {
     return List.generate(rowLength, (x) {
@@ -97,7 +90,6 @@ List<List<NormalGrid>> addEdges({required List<List<NormalGrid>> grids}) {
   });
 }
 
-@visibleForTesting
 List<List<Grid>> putNormalGoals({
   required List<List<NormalGrid>> baseGrids,
   required String normalGoalId,
@@ -113,7 +105,6 @@ List<List<Grid>> putNormalGoals({
   });
 }
 
-@visibleForTesting
 List<Tuple3<GoalTypes, RobotColors, Position>> getNormalGoalPositions({
   required String normalGoalId,
 }) {
@@ -129,7 +120,6 @@ List<Tuple3<GoalTypes, RobotColors, Position>> getNormalGoalPositions({
   }).expand((list) => list).toList();
 }
 
-@visibleForTesting
 Position getPosition({required String id}) {
   assert(id.length == 2);
   final x = boardIdChars.indexOf(id[0]);

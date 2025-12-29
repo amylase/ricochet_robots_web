@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:ricochet_robots/domains/board/board.dart';
 import 'package:ricochet_robots/domains/board/board_builder.dart';
 import 'package:ricochet_robots/domains/board/goal.dart';
@@ -73,7 +72,6 @@ class BoardId {
   }
 }
 
-@visibleForTesting
 String toBaseId({required Board board}) {
   return List.generate(rowLength, (y) {
     return List.generate(
@@ -83,7 +81,6 @@ String toBaseId({required Board board}) {
   }).join();
 }
 
-@visibleForTesting
 String toGridId({required Grid grid}) {
   return [
     Tuple2(grid.canMoveUp, canMoveUpBit),
@@ -177,7 +174,6 @@ final boardIdChars = [
 final base16Set = boardIdChars.take(16).toSet();
 final base64Set = boardIdChars.toSet();
 
-@visibleForTesting
 String to64based({required String from}) {
   final is16based = from.split('').every((c) => base16Set.contains(c));
   assert(is16based);
@@ -194,7 +190,6 @@ String to64based({required String from}) {
   return result.reversed.join();
 }
 
-@visibleForTesting
 String to16based({required String from}) {
   final is64based = from.split('').every((c) => base64Set.contains(c));
   assert(is64based);
